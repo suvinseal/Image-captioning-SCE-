@@ -1,0 +1,54 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2509
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red212\green34\blue255;\red0\green0\blue0;\red224\green51\blue34;
+\red97\green34\blue255;\red209\green113\blue37;\red119\green117\blue165;\red178\green48\blue128;}
+{\*\expandedcolortbl;;\cssrgb\c87269\c29650\c100000;\csgray\c0;\cssrgb\c91311\c29126\c17209;
+\cssrgb\c46228\c27439\c100000;\cssrgb\c85991\c52029\c18734;\cssrgb\c54197\c53905\c70624;\cssrgb\c75800\c28661\c57528;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \CocoaLigature0 from\cf3  os \cf2 import\cf3  listdir\
+\cf2 from\cf3  pickle \cf2 import\cf3  dump\
+\cf2 from\cf3  keras.applications.vgg16 \cf2 import\cf3  VGG16\
+\cf2 from\cf3  keras.preprocessing.image \cf2 import\cf3  load_img\
+\cf2 from\cf3  keras.preprocessing.image \cf2 import\cf3  img_to_array\
+\cf2 from\cf3  keras.applications.vgg16 \cf2 import\cf3  preprocess_input\
+\cf2 from\cf3  keras.models \cf2 import\cf3  Model\
+\
+\cf4 # extract features from each photo in the directory                                                  \cf3 \
+\cf2 def\cf3  \cf5 extract_features\cf3 (directory):\
+        \cf4 # load the model                                                                             \cf3 \
+        \cf6 model\cf3  = VGG16()\
+        \cf4 # re-structure the model                                                                     \cf3 \
+        model.layers.pop()\
+        \cf6 model\cf3  = Model(inputs=model.inputs, outputs=model.layers[-1].output)\
+        \cf4 # summarize                                                                                  \cf3 \
+        \cf2 print\cf3 (model.summary())\
+        \cf4 # extract features from each photo                                                           \cf3 \
+        \cf6 features\cf3  = \cf7 dict\cf3 ()\
+        \cf2 for\cf3  name \cf2 in\cf3  listdir(directory):\
+                \cf4 # load an image from file                                                            \cf3 \
+                \cf6 filename\cf3  = directory + \cf8 '/'\cf3  + name\
+                \cf6 image\cf3  = load_img(filename, target_size=(224, 224))\
+                \cf4 # convert the image pixels to a numpy array                                          \cf3 \
+                \cf6 image\cf3  = img_to_array(image)\
+                \cf4 # reshape data for the model                                                         \cf3 \
+                \cf6 image\cf3  = image.reshape((1, image.shape[0], image.shape[1], image.shape[2]))\
+                \cf4 # prepare the image for the VGG model                                                \cf3 \
+                \cf6 image\cf3  = preprocess_input(image)\
+                \cf4 # get features                                                                       \cf3 \
+                \cf6 feature\cf3  = model.predict(image, verbose=0)\
+                \cf4 # get image id                                                                       \cf3 \
+                \cf6 image_id\cf3  = name.split(\cf8 '.'\cf3 )[0]\
+                \cf4 # store feature                                                                      \cf3 \
+                \cf6 features\cf3 [image_id] = feature\
+                \cf2 print\cf3 (\cf8 '>%s'\cf3  % name)\
+        \cf2 return\cf3  features\
+\
+\cf4 # extract features from all images                                                                   \cf3 \
+\cf6 directory\cf3  = \cf8 'oneVal'\cf3 \
+\cf6 features\cf3  = extract_features(directory)\
+\cf2 print\cf3 (\cf8 'Extracted Features: %d'\cf3  % \cf7 len\cf3 (features))\
+\cf4 # save to file                                                                                       \cf3 \
+dump(features, \cf7 open\cf3 (\cf8 'oneValfeatures.pkl'\cf3 , \cf8 'wb'\cf3 ))\
+}
