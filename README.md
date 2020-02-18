@@ -1,1 +1,1 @@
-# ImageCaptioning (Washington College - Senior Capstone)
+# ImageCaptioning 
