@@ -10,7 +10,7 @@ We trained a model using Python that generates a sentence based on the objects i
 
 COCO is a large-scale object detection, segmentation and captioning dataset.  COCO stands for Common Objects in Context. The content of the images in dataset consist of everyday scenes. This dataset consists of more than 220,000 labelled images. Each image can have up to five captions. Some applications of this dataset include object segmentation, recognition in context etc. We use this image as a tool that can help a model recognize regions of interest in an image. We also used the Flickr8k dataset to train models and test the images we tested on Microsoft COCO dataset. The Flickr dataset has around five thousand images and each image have a caption.  
 
-# Machine learning
+### Machine learning
 
 -	Preparing Photo Data: 
 We used a pre-trained convolutional neural net (CNN) to recognize objects of interest in the image and extract important features from the images. 
