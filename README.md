@@ -16,8 +16,7 @@ COCO is a large-scale object detection, segmentation and captioning dataset.  CO
 We used a pre-trained convolutional neural net (CNN) to recognize objects of interest in the image and extract important features from the images. 
 
 a)	Transfer learning:
-
-	Transfer learning helps with time efficiency while building models. Starting the learning process from scratch can be a very time-consuming process and hence we make use of patterns that have been learned while solving a similar but different problem [3]. 
+Transfer learning helps with time efficiency while building models. Starting the learning process from scratch can be a very time-consuming process and hence we make use of patterns that have been learned while solving a similar but different problem [3]. 
   
 b)	Convolutional Neural Net (CNN): 
 The pre-trained model we use is based on a CNN. A typical CNN has two parts
@@ -25,6 +24,5 @@ i.	Convolutional base: Stack of convolutional and pooling layers.
 ii.	The Classifier: Composed of fully connected layers. 
 
 c)	Repurposing a pre-trained model:
-
 The original classifier is removed from the net which solves the purpose of our goal. If we get poor accuracy, we can fine-tune the model. In this capstone, we train some layers (RNN) and leave others frozen (CNN). 
 
