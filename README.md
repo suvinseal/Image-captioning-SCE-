@@ -26,3 +26,6 @@ ii.	The Classifier: Composed of fully connected layers.
 c)	Repurposing a pre-trained model:
 The original classifier is removed from the net which solves the purpose of our goal. If we get poor accuracy, we can fine-tune the model. In this capstone, we train some layers (RNN) and leave others frozen (CNN). 
 
+### Tools Used
+
+We used Python 3 as our choice of language for this project. We also used popular libraries like Keras with tensorflow as the backend along with pandas, numpy and scikit-learn. First, we tested our code on the Flickr8k dataset which consists of 8092 photographs in jpeg format and descriptions of these images. After testing our code on this dataset, we used the steps on the Microsoft COCO dataset. This dataset consists of over 220,000 images and each image has five captions. 
