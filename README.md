@@ -28,4 +28,9 @@ The original classifier is removed from the net which solves the purpose of our 
 
 ### Tools Used
 
-We used Python 3 as our choice of language for this project. We also used popular libraries like Keras with tensorflow as the backend along with pandas, numpy and scikit-learn. First, we tested our code on the Flickr8k dataset which consists of 8092 photographs in jpeg format and descriptions of these images. After testing our code on this dataset, we used the steps on the Microsoft COCO dataset. This dataset consists of over 220,000 images and each image has five captions. 
+We used Python 3 as our choice of language for this project. We also used popular libraries like Keras with tensorflow as the backend along with pandas, numpy and scikit-learn. First, we tested our code on the Flickr8k dataset which consists of 8092 photographs in jpeg format and descriptions of these images. After testing our code on this dataset, we used the steps on the Microsoft COCO dataset. This dataset consists of over 220,000 images and each image has five captions.
+
+### Data
+
+COCO is a large-scale captioning dataset with several features like object segmentation, recognition in context, over 220k labelled images, 80 object categories, 91 stuff categories, 5 captions per image and 1.5 million object instances. Deep learning models require large datasets to get good accuracy on the predictions. Training our model correctly on over 220k images is expected to give decent predictions. The Flickr8k dataset on the other hand is expected to perform not as well as the COCO dataset due to significantly less data for the model to learn from. 
+
