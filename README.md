@@ -37,4 +37,5 @@ COCO is a large-scale captioning dataset with several features like object segme
 ## Preparing Photo data
 
 We used a pre-trained model to interpret the content of the images. Among many other architectures to choose from, we ended up using the VGG architecture. We used the Keras in-built pre-trained model. This model can also be used as a broader image caption model, however, using this model to run through each photo through the network is not time efficient [2]. Hence, we pre-compute “photo-feature” using the pre-trained model and save it to a file. These features can be loaded later and fed in our model as the interpretation of a given photo in the dataset. This optimization makes training the models much faster and consume less memory. 
+We then load the VGG model in Keras and remove the last layer from the loaded model. This layer is used to predict a classification for a photo. As we are not interested in classification but the internal representation of the photo right before a classification is made, these “features” are extracted from the images. 
 
