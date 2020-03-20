@@ -34,3 +34,7 @@ We used Python 3 as our choice of language for this project. We also used popula
 
 COCO is a large-scale captioning dataset with several features like object segmentation, recognition in context, over 220k labelled images, 80 object categories, 91 stuff categories, 5 captions per image and 1.5 million object instances. Deep learning models require large datasets to get good accuracy on the predictions. Training our model correctly on over 220k images is expected to give decent predictions. The Flickr8k dataset on the other hand is expected to perform not as well as the COCO dataset due to significantly less data for the model to learn from. 
 
+## Preparing Photo data
+
+We used a pre-trained model to interpret the content of the images. Among many other architectures to choose from, we ended up using the VGG architecture. We used the Keras in-built pre-trained model. This model can also be used as a broader image caption model, however, using this model to run through each photo through the network is not time efficient [2]. Hence, we pre-compute “photo-feature” using the pre-trained model and save it to a file. These features can be loaded later and fed in our model as the interpretation of a given photo in the dataset. This optimization makes training the models much faster and consume less memory. 
+
