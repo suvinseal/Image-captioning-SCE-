@@ -42,4 +42,5 @@ We then load the VGG model in Keras and remove the last layer from the loaded mo
 ## Preparing Text Data
 As the dataset contains multiple descriptions for each photograph, we do some minimal cleaning. We convert all the words to lowercase, remove all punctuation, numbers and one-character words. We encode the description text to numbers before being fed into the model as an input. 
 
-
+#### Citations
+https://machinelearningmastery.com/develop-a-deep-learning-caption-generation-model-in-python/
